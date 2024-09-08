@@ -1,0 +1,47 @@
+<div class="emp-section">
+    <div data-aos="fade-right">
+        <div class="review-heading">
+            What Our <b>Employee Quote</b>
+        </div>
+
+        <div class="review-text">
+            <p>Here's what our Employees Quote about Scifor</p>
+        </div>
+    </div>
+
+    <div class="blog-slider" data-aos="fade-up">
+        <div class="blog-slider__wrp swiper-wrapper">
+            {% for review in employee_reviews %}
+            <div class="blog-slider__item swiper-slide">
+                <div class="blog-slider__img">
+                    <img src="{{ review.image.url }}" alt="emp"/>
+                </div>
+                <div class="blog-slider__content">
+                    <span class="blog-slider__code">{{ review.role }}</span>
+                    <div class="blog-slider__title">{{ review.name }}</div>
+                    <div class="blog-slider__text">
+                        {{ review.quote }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="blog-slider__pagination"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
+<script>
+    var swiper = new Swiper(".blog-slider", {
+        spaceBetween: 30,
+        effect: "fade",
+        loop: true,
+        mousewheel: {
+            invert: false,
+        },
+        pagination: {
+            el: ".blog-slider__pagination",
+            clickable: true,
+        },
+    });
+</script>
